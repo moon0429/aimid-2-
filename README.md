@@ -1,7 +1,9 @@
 # 跨領域-人工智慧-期中報告-利用GooGle Colab 訓練神經網路
 
 人工智慧期中報告
+
 11124237 朱瓊月
+
 11123042 林韋莘
 
 
@@ -40,6 +42,7 @@ breast_cancer.csv sample_data wdbc.data
 
 現在資料已經在機器上了，我們使用pandas 將其輸入到專案中。
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -58,7 +61,9 @@ y = dataset.iloc[:, 1].values
 Y 包含一列，其中的「M」和「B」分別代表「是」（惡性）和「否」（良性）。我們需要將其編碼成數學形式，即“1”和“0”。可以使用Label Encoder 類別完成此任務。
 
 #Encoding Categorical Data 
+
 from sklearn.preprocessing import LabelEncoder
+
 labelencoder = LabelEncoder()
 
 y = labelencoder.fit_transform(y)
@@ -70,6 +75,7 @@ from sklearn.preprocessing import OneHotEncoder
 onehotencoder = OneHotEncoder()
 y = onehotencoder.fit_transform(y).toarray()
 y = y[:, 1:] '''
+
 此時查看一下x和y:
 
 X.shape
@@ -83,6 +89,7 @@ y.shape
 #Splitting into Training set and Test set 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
+
 參數test_size = 0.2 定義測試集比例。這裡，我們將訓練集設定為資料集的80%，測試集佔資料集的20%。
 
  
@@ -91,7 +98,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 3.1 Keras
 Keras 是一種建構人工神經網路的高階API。它使用TensorFlow 或Theano 後端執行內部運作。要安裝Keras，必須先安裝TensorFlow。 CoLaboratory 已經在虛擬機器上安裝了TensorFlow。使用以下指令可以檢查是否安裝TensorFlow：
 
+
 !pip show tensorflow
+
 你也可以使用!pip install tensorflow==1.2，安裝特定版本的TensorFlow。
 
 另外，如果你更喜歡用Theano 後端，可以閱讀該文件：https://keras.io/backend/。
@@ -99,7 +108,9 @@ Keras 是一種建構人工神經網路的高階API。它使用TensorFlow 或The
 安裝Keras：
 
 !pip install -q keras
+
 3.2 然後導入Keras庫和套件
+
 #Importing the Keras libraries and packages 
 import keras
  from keras.models import Sequential
