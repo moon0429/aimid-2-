@@ -56,6 +56,8 @@ dataset = pd.read_csv( ' breast_cancer.csv ' )
 
 dataset.head(5)
 
+https://img2018.cnblogs.com/blog/1365470/201903/1365470-20190306152235850-820076123.png
+
 現在，分割因變數（Dependent Variables）和自變數（Independent Variables）。
 
 #Seperating dependent and independent variables. 
