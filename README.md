@@ -20,16 +20,22 @@
 # 1、下載數據
 首先將資料集放置到該機器上，這樣我們的notebook 就可以存取它。你可以使用以下程式碼：
 
+
+
   from google.colab import files
   uploaded = files.upload()
 
 結果：
+
+
 
   wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
    Saving wdbc.data to wdbc.data
 
  
 另存為breast_cancer.csv:
+
+
 
 
    with open("breast_cancer.csv", 'w') as f:
@@ -40,27 +46,34 @@
     
 用!ls查看結果如下：
 
+
+
 breast_cancer.csv sample_data wdbc.data
+
 
 # 2、資料預處理
 
 現在資料已經在機器上了，我們使用pandas 將其輸入到專案中。
 
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 #Importing dataset 
-
 dataset = pd.read_csv( ' breast_cancer.csv ' )
 
 查看前五行:
 
+
 dataset.head(5)
+
 ![image](https://github.com/user-attachments/assets/05b4305c-0f8d-4155-99c8-37f43fb4470b)
 
 
 現在，分割因變數（Dependent Variables）和自變數（Independent Variables）。
+
+
 
 #Seperating dependent and independent variables. 
 
@@ -70,14 +83,18 @@ y = dataset.iloc[:, 1].values
 
 Y 包含一列，其中的「M」和「B」分別代表「是」（惡性）和「否」（良性）。我們需要將其編碼成數學形式，即“1”和“0”。可以使用Label Encoder 類別完成此任務。
 
+
+
 #Encoding Categorical Data 
-
 from sklearn.preprocessing import LabelEncoder
-
 labelencoder = LabelEncoder()
-
 y = labelencoder.fit_transform(y)
+
+
+
 （如果資料類別多於兩類，則使用OneHotEncoder）
+
+
 
 ''' #OneHotEncoder
 from sklearn.preprocessing import OneHotEncoder
