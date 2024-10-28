@@ -32,6 +32,7 @@ wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
 另存為breast_cancer.csv:
 
 with open("breast_cancer.csv", 'w') as f: # Remove the extra spaces around 'w'
+
     f.write(uploaded[list(uploaded.keys())[0]].decode()) # Decode the bytes to string
     
 用!ls查看結果如下：
@@ -44,11 +45,8 @@ breast_cancer.csv sample_data wdbc.data
 
 
 import numpy as np
-
 import matplotlib.pyplot as plt
-
 import pandas as pd
-
 #Importing dataset 
 
 dataset = pd.read_csv( ' breast_cancer.csv ' )
@@ -62,7 +60,9 @@ dataset.head(5)
 #Seperating dependent and independent variables. 
 
 X = dataset.iloc[:, 2:32].values   # Note: Exclude Last column with all NaN values. 
+
 y = dataset.iloc[:, 1].values
+
 Y 包含一列，其中的「M」和「B」分別代表「是」（惡性）和「否」（良性）。我們需要將其編碼成數學形式，即“1”和“0”。可以使用Label Encoder 類別完成此任務。
 
 #Encoding Categorical Data 
