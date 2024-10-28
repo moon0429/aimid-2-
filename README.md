@@ -4,6 +4,8 @@
 #11124237 朱瓊月
 #11123042 林韋莘
 
+
+
 主旨
 本文旨在展示如何使用CoLaboratory 訓練神經網路。我們將展示一個在威斯康辛乳癌資料集上訓練神經網路的範例，資料集可在UCI Machine Learning Repository（http://archive.ics.uci.edu/ml/datasets）取得（具體的位置breast-cancer -wisconsin/wdbc.data）。本文的範例相對比較簡單。
 本文所使用的CoLaboratory notebook 連結：https://colab.research.google.com/notebook#fileId=1aQGl_sH4TVehK8PDBRspwI4pD16xIR0r
