@@ -20,23 +20,15 @@
 # 1、下載數據
 首先將資料集放置到該機器上，這樣我們的notebook 就可以存取它。你可以使用以下程式碼：
 
-
-
   from google.colab import files
   uploaded = files.upload()
 
 結果：
-
-
-
   wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
    Saving wdbc.data to wdbc.data
 
  
 另存為breast_cancer.csv:
-
-
-
 
    with open("breast_cancer.csv", 'w') as f:
    
@@ -91,9 +83,7 @@ labelencoder = LabelEncoder()
 y = labelencoder.fit_transform(y)
 
 
-
 （如果資料類別多於兩類，則使用OneHotEncoder）
-
 
 
 ''' #OneHotEncoder
@@ -107,8 +97,8 @@ y = y[:, 1:] '''
 
 X.shape
 y.shape
-結果：
 
+結果：
 (568, 30 )
 ( 568,)
 
@@ -132,13 +122,15 @@ Keras 是一種建構人工神經網路的高階API。它使用TensorFlow 或The
 
 !pip show tensorflow
 
-你也可以使用!pip install tensorflow==1.2，安裝特定版本的TensorFlow。
 
+你也可以使用!pip install tensorflow==1.2，安裝特定版本的TensorFlow。
 另外，如果你更喜歡用Theano 後端，可以閱讀該文件：https://keras.io/backend/。
 
 安裝Keras：
 
+
 !pip install -q keras
+
 
 3.2 然後導入Keras庫和套件
 
@@ -162,9 +154,12 @@ classifier = Sequential()
 
 3.4 設計神經網絡
 
-對於每個隱藏層，我們需要定義三個基本參數：units、kernel_initializer 和activation。 units 參數定義每層包含的神經元數量。 Kernel_initializer 定義神經元在輸入資料上執行時的初始權重（詳見https://faroit.github.io/keras-docs/1.2.2/initializations/）。 activation 定義資料的激活函數。
+對於每個隱藏層，我們需要定義三個基本參數：units、kernel_initializer 和activation。 units 參數定義每層包含的神經元數量。
+Kernel_initializer 定義神經元在輸入資料上執行時的初始權重（詳見https://faroit.github.io/keras-docs/1.2.2/initializations/）。 
+activation 定義資料的激活函數。
 
-輸入層與第一個隱藏層：16 個具備統一初始權重的神經元，活化函數為ReLU。此外，定義參數input_dim = 30 作為輸入層的規格。注意我們的資料集中有30 個特徵列。註：如何決定第一個隱藏層的節點數，對於初學者來說，一個簡單方式是：x 和y 的總和除以2。如(30+1)/2 = 15.5 ~ 16，因此，units = 16.
+輸入層與第一個隱藏層：16 個具備統一初始權重的神經元，活化函數為ReLU。此外，定義參數input_dim = 30 作為輸入層的規格。注意我們的資料集中有30 個特徵列。
+註：如何決定第一個隱藏層的節點數，對於初學者來說，一個簡單方式是：x 和y 的總和除以2。如(30+1)/2 = 15.5 ~ 16，因此，units = 16.
 
 第二層：第二層和第一層一樣，不過第二層沒有input_dim 參數.
 
@@ -195,6 +190,7 @@ classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
 
 這裡batch_size 是你希望同時處理的輸入量。 epoch 指數據通過神經網路一次的整個週期。它們在Colaboratory Notebook 中顯示如下：
 
+<img width="658" alt="image" src="https://github.com/user-attachments/assets/1518557e-0a38-4b7b-85cb-9c7f6252095f">
 
 
  
@@ -219,10 +215,13 @@ cm = confusion_matrix(y_test, y_pred)
 混淆矩陣是模型做出的正確、錯誤預測的矩陣表徵。此矩陣可供個人調查哪些預測和另一種預測混淆。這是一個2×2 的混淆矩陣。
 
 
+![image](https://github.com/user-attachments/assets/31b5c4b3-b422-4731-9b53-d24b6ede946b)
 
  
 
  混淆矩陣如下所示[cm (Ctrl+Enter)]
+
+![image](https://github.com/user-attachments/assets/dcd76809-1c39-4a33-b5ec-af46984728ea)
 
 
 
