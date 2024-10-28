@@ -20,18 +20,19 @@
 # 1、下載數據
 首先將資料集放置到該機器上，這樣我們的notebook 就可以存取它。你可以使用以下程式碼：
 
-from google.colab import files
-uploaded = files.upload()
+ from google.colab import files
+ uploaded = files.upload()
 
 結果：
 
-wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
- Saving wdbc.data to wdbc.data
+ wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
+  Saving wdbc.data to wdbc.data
 
  
 另存為breast_cancer.csv:
 
-with open("breast_cancer.csv", 'w') as f: # Remove the extra spaces around 'w'
+
+ with open("breast_cancer.csv", 'w') as f: # Remove the extra spaces around 'w'
 
     f.write(uploaded[list(uploaded.keys())[0]].decode()) # Decode the bytes to string
     
