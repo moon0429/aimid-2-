@@ -6,13 +6,15 @@
 
 
 
-#主旨
+# 主旨
+
 本文旨在展示如何使用CoLaboratory 訓練神經網路。我們將展示一個在威斯康辛乳癌資料集上訓練神經網路的範例，資料集可在UCI Machine Learning Repository（http://archive.ics.uci.edu/ml/datasets）取得（具體的位置：breast-cancer -wisconsin/wdbc.data）
 。本文的範例相對比較簡單。
 本文所使用的CoLaboratory notebook 連結：https://colab.research.google.com/notebook#fileId=1aQGl_sH4TVehK8PDBRspwI4pD16xIR0r
 
 
-#程式碼
+
+# 程式碼
 問題：研究者取得乳房腫塊的細針穿刺（FNA），然後產生數位影像。此資料集包含描述影像中細胞核特徵的實例。每個實例包括診斷結果：M（惡性）或B（良性）。我們的任務是在該數據上訓練神經網路根據上述特徵診斷乳癌。
 
 1、下載數據
@@ -20,28 +22,27 @@
 
 from google.colab import files
 uploaded = files.upload()
-結果：
 
+結果：
 wdbc.data(n/a) - 124103 bytes, last modified: 2019/3/5 - 100% done
  Saving wdbc.data to wdbc.data
+
+ 
 另存為breast_cancer.csv:
-
-with open( " breast_cancer.csv " , ' w ' ) as f:
-    f.write(uploaded[uploaded.keys()[0]])
+with open("breast_cancer.csv", 'w') as f: # Remove the extra spaces around 'w'
+    f.write(uploaded[list(uploaded.keys())[0]].decode()) # Decode the bytes to string
 用!ls查看結果如下：
-
 breast_cancer.csv sample_data wdbc.data
+
 2、資料預處理
 現在資料已經在機器上了，我們使用pandas 將其輸入到專案中。
-
 import numpy as np
- import matplotlib.pyplot as plt
- import pandas as pd
-
-# Importing dataset 
+import matplotlib.pyplot as plt
+import pandas as pd
+#Importing dataset 
 dataset = pd.read_csv( ' breast_cancer.csv ' )
-查看前五行:
 
+查看前五行:
 dataset.head(5)
 
 
