@@ -44,12 +44,17 @@ breast_cancer.csv sample_data wdbc.data
 
 
 import numpy as np
+
 import matplotlib.pyplot as plt
+
 import pandas as pd
+
 #Importing dataset 
+
 dataset = pd.read_csv( ' breast_cancer.csv ' )
 
 查看前五行:
+
 dataset.head(5)
 
 現在，分割因變數（Dependent Variables）和自變數（Independent Variables）。
