@@ -55,8 +55,8 @@ dataset = pd.read_csv( ' breast_cancer.csv ' )
 查看前五行:
 
 dataset.head(5)
+![image](https://github.com/user-attachments/assets/05b4305c-0f8d-4155-99c8-37f43fb4470b)
 
-https://img2018.cnblogs.com/blog/1365470/201903/1365470-20190306152235850-820076123.png
 
 現在，分割因變數（Dependent Variables）和自變數（Independent Variables）。
 
